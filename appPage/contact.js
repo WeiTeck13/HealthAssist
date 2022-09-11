@@ -1,0 +1,223 @@
+import React, { useState, useEffect } from 'react';
+import {
+    View,
+    Text,
+    StyleSheet,
+    ScrollView,
+    TextInput,
+    TouchableOpacity,
+    SafeAreaView,
+    Alert,
+} from 'react-native';
+
+import { styles } from "../stylesheetFolder/style";
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import call from 'react-native-phone-call';
+
+import Icon from 'react-native-vector-icons/AntDesign';
+
+//Storage Key for Async Storage
+const STORAGE_KEY_FAM = '@save_fam';
+const STORAGE_KEY_DOC = '@save_doc';
+const STORAGE_KEY_DOCNAME = '@save_docname';
+
+
+//==========================================================================================
+// const begins here
+//==========================================================================================
+
+const Contact = ({ navigation }) => {
+
+
+    //==========================================================================================
+    // storage
+    //==========================================================================================
+
+    //Set State for Async Storage
+    const [fam, setFam] = useState('');
+    const [doc, setDoc] = useState('');
+    const [docName, setDocName] = useState('');
+
+    /* Save data into Async Storage */
+    const saveData = async () => {
+
+        if (!fam.trim()) {
+
+            alert('Please enter the family emergency conact.')
+
+        } else {
+
+            try {
+                await AsyncStorage.setItem(STORAGE_KEY_FAM, fam);
+                await AsyncStorage.setItem(STORAGE_KEY_DOC, doc);
+                await AsyncStorage.setItem(STORAGE_KEY_DOCNAME, docName);
+
+                alert('Data successfully saved');
+            } catch (e) {
+                alert('Failed to save the data to the storage');
+            }
+        }
+    };
+
+    /* Read data from Async Storage */
+    const readData = async () => {
+        try {
+            const userFam = await AsyncStorage.getItem(STORAGE_KEY_FAM);
+            const userDoc = await AsyncStorage.getItem(STORAGE_KEY_DOC);
+            const userDocName = await AsyncStorage.getItem(STORAGE_KEY_DOCNAME);
+
+            if (userFam !== null) {
+                setFam(userFam);
+            }
+
+            if (userDoc !== null) {
+                setDoc(userDoc);
+            }
+
+            if (userDocName !== null) {
+                setDocName(userDocName);
+            }
+
+        } catch (e) {
+            alert('Failed to fetch the data from storage');
+        }
+    };
+
+    useEffect(() => {
+        readData();
+    }, []);
+
+    // Clear data warning
+    const clearWarning = () =>
+        Alert.alert(
+            "Alert",
+            "Are you sure you want to delete all your data?",
+            [
+                {
+                    text: "Cancel",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel"
+                },
+                { text: "DELETE", onPress: clearStorage }
+            ]
+        );
+
+    /* Clear data from Async Storage */
+    const clearStorage = async () => {
+        try {
+            //await AsyncStorage.clear();
+            await AsyncStorage.removeItem('@save_fam');
+            await AsyncStorage.removeItem('@save_doc');
+            await AsyncStorage.removeItem('@save_docName');
+
+            setFam('');
+            setDoc('');
+            setDocName('');
+
+            alert('Storage successfully cleared!');
+        } catch (e) {
+            alert('Failed to clear the async storage.');
+        }
+    };
+
+    const onChangeTextFam = (userFam) => setFam(userFam);
+    const onChangeTextDoc = (userDoc) => setDoc(userDoc);
+    const onChangeTextDocName = (userDocName) => setDocName(userDocName);
+
+
+    const onSubmitEditing = () => {
+        if (!fam && !doc && !docName) return;
+
+        saveData(fam, doc, docName);
+
+        setFam('');
+        setDoc('');
+        setDocName('');
+
+    };
+
+    //==========================================================================================
+    // contact
+    //==========================================================================================
+
+    const args = {
+        number: fam, // String value with the number to call
+        prompt: false, // Optional boolean property. Determines if the user should be prompted prior to the call 
+        skipCanOpen: true // Skip the canOpenURL check
+      }
+
+      const args2 = {
+        number: doc, // String value with the number to call
+        prompt: false, // Optional boolean property. Determines if the user should be prompted prior to the call 
+        skipCanOpen: true // Skip the canOpenURL check
+      }
+
+    //==========================================================================================
+    // return
+    //==========================================================================================
+
+    return (
+        <ScrollView style={styles.container}>
+
+            <Text style={styles.title}>Family emergency contact</Text>
+
+            <Text style={styles.title3}>Family member emergency contact</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Contact"
+                keyboardType="numeric"
+                value={fam}
+                onChangeText={onChangeTextFam}
+                onSubmitEditing={onSubmitEditing}
+            />
+
+<TouchableOpacity onPress={() => call(args).catch(console.error)} style={styles.iconButton}>
+      <Text style={styles.buttonText}>CALL</Text>
+      </TouchableOpacity>
+
+            <Text style={styles.title}>Family doctor</Text>
+
+            <Text style={styles.title3}>Family doctor name</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Name"
+                keyboardType="default"
+                value={docName}
+                onChangeText={onChangeTextDocName}
+                onSubmitEditing={onSubmitEditing}
+            />
+
+            <Text style={styles.title3}>Family doctor contact</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Contact"
+                keyboardType="numeric"
+                value={doc}
+                onChangeText={onChangeTextDoc}
+                onSubmitEditing={onSubmitEditing}
+            />
+
+<TouchableOpacity onPress={() => call(args2).catch(console.error)} style={styles.iconButton}>
+     <Text style={styles.buttonText}>CALL</Text>
+      </TouchableOpacity>
+
+            <View
+                style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+                <TouchableOpacity onPress={clearWarning} style={styles.clearButton}>
+                    <Text style={styles.buttonText}>CLEAR</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={saveData} style={styles.startButton}>
+                    <Text style={styles.buttonText}>SAVE</Text>
+                </TouchableOpacity>
+            </View>
+
+            <Text>{"\n"}</Text>
+
+        </ScrollView>
+    );
+};
+
+export default Contact;
