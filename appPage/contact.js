@@ -16,8 +16,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import call from 'react-native-phone-call';
 
-import Icon from 'react-native-vector-icons/AntDesign';
-
 //Storage Key for Async Storage
 const STORAGE_KEY_FAM = '@save_fam';
 const STORAGE_KEY_DOC = '@save_doc';
@@ -146,19 +144,20 @@ const Contact = ({ navigation }) => {
         number: fam, // String value with the number to call
         prompt: false, // Optional boolean property. Determines if the user should be prompted prior to the call 
         skipCanOpen: true // Skip the canOpenURL check
-      }
+    }
 
-      const args2 = {
+    const args2 = {
         number: doc, // String value with the number to call
         prompt: false, // Optional boolean property. Determines if the user should be prompted prior to the call 
         skipCanOpen: true // Skip the canOpenURL check
-      }
+    }
 
     //==========================================================================================
     // return
     //==========================================================================================
 
     return (
+
         <ScrollView style={styles.container}>
 
             <Text style={styles.title}>Family emergency contact</Text>
@@ -173,9 +172,9 @@ const Contact = ({ navigation }) => {
                 onSubmitEditing={onSubmitEditing}
             />
 
-<TouchableOpacity onPress={() => call(args).catch(console.error)} style={styles.iconButton}>
-      <Text style={styles.buttonText}>CALL</Text>
-      </TouchableOpacity>
+            <TouchableOpacity onPress={() => call(args).catch(console.error)} style={styles.iconButton}>
+                <Text style={styles.buttonText}>CALL</Text>
+            </TouchableOpacity>
 
             <Text style={styles.title}>Family doctor</Text>
 
@@ -199,9 +198,9 @@ const Contact = ({ navigation }) => {
                 onSubmitEditing={onSubmitEditing}
             />
 
-<TouchableOpacity onPress={() => call(args2).catch(console.error)} style={styles.iconButton}>
-     <Text style={styles.buttonText}>CALL</Text>
-      </TouchableOpacity>
+            <TouchableOpacity onPress={() => call(args2).catch(console.error)} style={styles.iconButton}>
+                <Text style={styles.buttonText}>CALL</Text>
+            </TouchableOpacity>
 
             <View
                 style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
