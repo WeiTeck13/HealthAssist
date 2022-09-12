@@ -130,7 +130,7 @@ const Contact = ({ navigation }) => {
         }
     };
 
-    const onChangeTextFamName = (userFamName) => setFam(userFamName);
+    const onChangeTextFamName = (userFamName) => setFamName(userFamName);
     const onChangeTextFam = (userFam) => setFam(userFam);
     const onChangeTextDoc = (userDoc) => setDoc(userDoc);
     const onChangeTextDocName = (userDocName) => setDocName(userDocName);

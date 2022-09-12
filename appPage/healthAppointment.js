@@ -47,7 +47,7 @@ const HealthAppointment = ({ navigation }) => {
 
   /* Save data into Async Storage */
   const saveData = async () => {
-    if (!appDate.trim() && !appTime.trim() && !appLoc.trim() && !desc.trim()) {
+    if (!appLoc.trim() && !desc.trim()) {
 
       alert('Please enter the appointment date, time, location, and description.');
 
@@ -220,7 +220,7 @@ const HealthAppointment = ({ navigation }) => {
   //==========================================================================================
 
   return (
-    
+
     <ScrollView style={styles.container}>
 
       <Text style={styles.title3}>Date</Text>
@@ -237,7 +237,7 @@ const HealthAppointment = ({ navigation }) => {
       />
 
       <TouchableOpacity onPress={showDatePicker} style={styles.iconButton}>
-      <Icon name="calendar" size={30} color="white" /><Text style={styles.buttonText}> SELECT DATE</Text>
+        <Icon name="calendar" size={30} color="white" /><Text style={styles.buttonText}> SELECT DATE</Text>
       </TouchableOpacity>
 
       <DateTimePickerModal
@@ -295,7 +295,7 @@ const HealthAppointment = ({ navigation }) => {
 
       <Text style={styles.title3}>Precaution note</Text>
       <Text style={{ paddingLeft: 10, fontSize: 16, }}>Your doctor may require you to take note certain precaution before your upcoming appointment.</Text>
-      
+
       <TextInput
         multiline
         style={styles.inputII}
@@ -306,13 +306,13 @@ const HealthAppointment = ({ navigation }) => {
         onSubmitEditing={onSubmitEditing}
       />
 
-<View
-                style={{
-                    padding: 20,
-                    borderBottomColor: 'grey',
-                    borderBottomWidth: StyleSheet.hairlineWidth,
-                }}
-            />
+      <View
+        style={{
+          padding: 20,
+          borderBottomColor: 'grey',
+          borderBottomWidth: StyleSheet.hairlineWidth,
+        }}
+      />
 
       <View style={styles.buttonArea}>
         <TouchableOpacity onPress={clearWarning} style={styles.clearButton}>
