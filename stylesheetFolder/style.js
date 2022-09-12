@@ -14,6 +14,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+
+    // ==========================================================================================
+    // Button
+    // ==========================================================================================
+
     startButton: {
         height: 40,
         width: 170,
@@ -28,7 +33,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#1976D2',
         justifyContent: 'center',
         alignItems: 'center',
-      },
+    },
     iconButton: {
         height: 40,
         width: 170,
@@ -52,6 +57,15 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 16,
     },
+
+    buttonArea: {
+        flex: 1, flexDirection: 'row', justifyContent: 'center', paddingTop: 10
+    },
+
+    // ==========================================================================================
+    // Input and picker
+    // ==========================================================================================
+
     input: {
         height: 40,
         margin: 12,
@@ -76,6 +90,11 @@ const styles = StyleSheet.create({
         color: '#344953',
         justifyContent: 'center',
     },
+
+    // ==========================================================================================
+    // Text
+    // ==========================================================================================
+
     title: {
         fontSize: 22,
     },
@@ -86,13 +105,17 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         paddingLeft: 10,
         fontSize: 16,
-      },
+    },
     description: {
         flex: 1,
         //flexWrap: 'wrap',
         textAlign: 'justify',
         fontSize: 16,
     },
+
+    // ==========================================================================================
+    // Table
+    // ==========================================================================================
 
     head: { height: 40, backgroundColor: '#1976D2', },
     headText: { margin: 6, color: 'white' },

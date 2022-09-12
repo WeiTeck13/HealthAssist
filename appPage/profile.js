@@ -37,10 +37,10 @@ const STORAGE_KEY_HEIGHT = '@save_height';
 //==========================================================================================
 
 const Profile = ({ navigation }) => {
-  
-//==========================================================================================
-// storage
-//==========================================================================================
+
+  //==========================================================================================
+  // storage
+  //==========================================================================================
 
   //Set State for Async Storage
   const [name, setName] = useState('');
@@ -125,18 +125,18 @@ const Profile = ({ navigation }) => {
 
   // Clear data warning
   const clearWarning = () =>
-  Alert.alert(
-    "Alert",
-    "Are you sure you want to delete all your data?",
-    [
-      {
-        text: "Cancel",
-        onPress: () => console.log("Cancel Pressed"),
-        style: "cancel"
-      },
-      { text: "DELETE", onPress: clearStorage }
-    ]
-  );
+    Alert.alert(
+      "Alert",
+      "Are you sure you want to delete all your data?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "DELETE", onPress: clearStorage }
+      ]
+    );
 
   /* Clear data from Async Storage */
   const clearStorage = async () => {
@@ -218,12 +218,12 @@ const Profile = ({ navigation }) => {
       : '';
   };
 
-//==========================================================================================
-// return
-//==========================================================================================
+  //==========================================================================================
+  // return
+  //==========================================================================================
 
   return (
-    
+
     <ScrollView style={styles.container}>
 
       <Text style={styles.title3}>Name</Text>
@@ -321,7 +321,15 @@ const Profile = ({ navigation }) => {
         onSubmitEditing={onSubmitEditing}
       />
 
-      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+      <View
+        style={{
+          padding: 20,
+          borderBottomColor: 'grey',
+          borderBottomWidth: StyleSheet.hairlineWidth,
+        }}
+      />
+
+      <View style={styles.buttonArea}>
 
         <TouchableOpacity onPress={clearWarning} style={styles.clearButton}>
           <Text style={styles.buttonText}>CLEAR</Text>

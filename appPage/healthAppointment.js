@@ -306,7 +306,15 @@ const HealthAppointment = ({ navigation }) => {
         onSubmitEditing={onSubmitEditing}
       />
 
-      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+<View
+                style={{
+                    padding: 20,
+                    borderBottomColor: 'grey',
+                    borderBottomWidth: StyleSheet.hairlineWidth,
+                }}
+            />
+
+      <View style={styles.buttonArea}>
         <TouchableOpacity onPress={clearWarning} style={styles.clearButton}>
           <Text style={styles.buttonText}>CLEAR</Text>
         </TouchableOpacity>

@@ -32,9 +32,9 @@ const STORAGE_KEY_EXPIRY = '@save_expiry';
 
 const Insurance = ({ navigation }) => {
 
-//==========================================================================================
-// storage
-//==========================================================================================
+  //==========================================================================================
+  // storage
+  //==========================================================================================
 
   //Set State for Async Storage
   const [title, setTitle] = useState('');
@@ -52,7 +52,7 @@ const Insurance = ({ navigation }) => {
       alert('Please enter the insurance title, company, and note.')
 
     } else {
-      
+
       try {
         await AsyncStorage.setItem(STORAGE_KEY_TITLE, title);
         await AsyncStorage.setItem(STORAGE_KEY_COMPANY, company);
@@ -110,8 +110,8 @@ const Insurance = ({ navigation }) => {
     readData();
   }, []);
 
-    // Clear data warning
-    const clearWarning = () =>
+  // Clear data warning
+  const clearWarning = () =>
     Alert.alert(
       "Alert",
       "Are you sure you want to delete all your data?",
@@ -168,10 +168,10 @@ const Insurance = ({ navigation }) => {
     setEffectiveDate('');
     setExpiryDate('');
   };
-  
-//==========================================================================================
-// date and time picker
-//==========================================================================================
+
+  //==========================================================================================
+  // date and time picker
+  //==========================================================================================
 
   //Date picker for effective date
   const [isEffDatePickerVisible, setEffDatePickerVisibility] = useState(false);
@@ -218,13 +218,13 @@ const Insurance = ({ navigation }) => {
       ? `${tempDate[0]} ${tempDate[1]} ${tempDate[2]} ${tempDate[3]}`
       : '';
   };
-  
-//==========================================================================================
-// return
-//==========================================================================================
+
+  //==========================================================================================
+  // return
+  //==========================================================================================
 
   return (
-    
+
     <ScrollView style={styles.container}>
       <Text style={styles.title3}>Insurance title</Text>
       <TextInput
@@ -293,7 +293,6 @@ const Insurance = ({ navigation }) => {
 
       <Text style={styles.title3}>Expiry date</Text>
 
-
       <TextInput
         style={styles.input}
         placeholder="Expiry date"
@@ -318,7 +317,15 @@ const Insurance = ({ navigation }) => {
       />
 
       <View
-        style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+        style={{
+          padding: 20,
+          borderBottomColor: 'grey',
+          borderBottomWidth: StyleSheet.hairlineWidth,
+        }}
+      />
+
+      <View
+        style={styles.buttonArea}>
         <TouchableOpacity onPress={clearWarning} style={styles.clearButton}>
           <Text style={styles.buttonText}>CLEAR</Text>
         </TouchableOpacity>
@@ -326,6 +333,7 @@ const Insurance = ({ navigation }) => {
         <TouchableOpacity onPress={saveData} style={styles.startButton}>
           <Text style={styles.buttonText}>SAVE</Text>
         </TouchableOpacity>
+        
       </View>
 
       <Text>{"\n"}</Text>

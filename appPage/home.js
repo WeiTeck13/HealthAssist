@@ -241,24 +241,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  startButtonII: {
-    height: 230,
-    width: 180,
-    margin: 5,
-    padding: 10,
-    backgroundColor: '#1976D2',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   buttonText: {
-    //color: 'white',
     fontSize: 16,
-    padding: 10,
-
-  },
-  buttonText2: {
-    color: 'white',
-    fontSize: 18,
     padding: 10,
 
   },
@@ -269,11 +253,6 @@ const styles = StyleSheet.create({
   },
   textTitle2: {
     fontSize: 22,
-  },
-  imageStyle: {
-    height: 180,
-    width: 180,
-    alignItems: 'center',
   },
 });
 

@@ -17,6 +17,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import call from 'react-native-phone-call';
 
 //Storage Key for Async Storage
+const STORAGE_KEY_FAMNAME = '@save_famname';
 const STORAGE_KEY_FAM = '@save_fam';
 const STORAGE_KEY_DOC = '@save_doc';
 const STORAGE_KEY_DOCNAME = '@save_docname';
@@ -34,6 +35,7 @@ const Contact = ({ navigation }) => {
     //==========================================================================================
 
     //Set State for Async Storage
+    const [famname, setFamName] = useState('')
     const [fam, setFam] = useState('');
     const [doc, setDoc] = useState('');
     const [docName, setDocName] = useState('');
@@ -48,6 +50,7 @@ const Contact = ({ navigation }) => {
         } else {
 
             try {
+                await AsyncStorage.setItem(STORAGE_KEY_FAMNAME, famname);
                 await AsyncStorage.setItem(STORAGE_KEY_FAM, fam);
                 await AsyncStorage.setItem(STORAGE_KEY_DOC, doc);
                 await AsyncStorage.setItem(STORAGE_KEY_DOCNAME, docName);
@@ -62,9 +65,14 @@ const Contact = ({ navigation }) => {
     /* Read data from Async Storage */
     const readData = async () => {
         try {
+            const userFamName = await AsyncStorage.getItem(STORAGE_KEY_FAMNAME);
             const userFam = await AsyncStorage.getItem(STORAGE_KEY_FAM);
             const userDoc = await AsyncStorage.getItem(STORAGE_KEY_DOC);
             const userDocName = await AsyncStorage.getItem(STORAGE_KEY_DOCNAME);
+
+            if (userFamName !== null) {
+                setFamName(userFamName);
+            }
 
             if (userFam !== null) {
                 setFam(userFam);
@@ -106,10 +114,12 @@ const Contact = ({ navigation }) => {
     const clearStorage = async () => {
         try {
             //await AsyncStorage.clear();
+            await AsyncStorage.removeItem('@save_famname');
             await AsyncStorage.removeItem('@save_fam');
             await AsyncStorage.removeItem('@save_doc');
             await AsyncStorage.removeItem('@save_docName');
 
+            setFamName('');
             setFam('');
             setDoc('');
             setDocName('');
@@ -120,16 +130,18 @@ const Contact = ({ navigation }) => {
         }
     };
 
+    const onChangeTextFamName = (userFamName) => setFam(userFamName);
     const onChangeTextFam = (userFam) => setFam(userFam);
     const onChangeTextDoc = (userDoc) => setDoc(userDoc);
     const onChangeTextDocName = (userDocName) => setDocName(userDocName);
 
 
     const onSubmitEditing = () => {
-        if (!fam && !doc && !docName) return;
+        if (!famname && !fam && !doc && !docName) return;
 
-        saveData(fam, doc, docName);
+        saveData(famname, fam, doc, docName);
 
+        setFamName('');
         setFam('');
         setDoc('');
         setDocName('');
@@ -162,7 +174,17 @@ const Contact = ({ navigation }) => {
 
             <Text style={styles.title}>Family emergency contact</Text>
 
-            <Text style={styles.title3}>Family member emergency contact</Text>
+            <Text style={styles.title3}>Family member name</Text>
+            <TextInput
+                style={styles.input}
+                placeholder="Name"
+                keyboardType="default"
+                value={famname}
+                onChangeText={onChangeTextFamName}
+                onSubmitEditing={onSubmitEditing}
+            />
+
+            <Text style={styles.title3}>Family member contact</Text>
             <TextInput
                 style={styles.input}
                 placeholder="Contact"
@@ -203,7 +225,15 @@ const Contact = ({ navigation }) => {
             </TouchableOpacity>
 
             <View
-                style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+                style={{
+                    padding: 20,
+                    borderBottomColor: 'grey',
+                    borderBottomWidth: StyleSheet.hairlineWidth,
+                }}
+            />
+
+            <View
+                style={styles.buttonArea}>
                 <TouchableOpacity onPress={clearWarning} style={styles.clearButton}>
                     <Text style={styles.buttonText}>CLEAR</Text>
                 </TouchableOpacity>

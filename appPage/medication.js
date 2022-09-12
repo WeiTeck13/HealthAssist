@@ -140,6 +140,10 @@ const Medication = ({ navigation }) => {
 
     };
 
+    //==========================================================================================
+    // Date
+    //==========================================================================================
+
     //Date picker
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
@@ -193,7 +197,7 @@ const Medication = ({ navigation }) => {
                 onSubmitEditing={onSubmitEditing}
             />
 
-<Text style={styles.title3}>Night</Text>
+            <Text style={styles.title3}>Night</Text>
             <TextInput
                 multiline
                 style={styles.inputII}
@@ -204,12 +208,18 @@ const Medication = ({ navigation }) => {
                 onSubmitEditing={onSubmitEditing}
             />
 
-<Text style={styles.title3}>Note</Text>
-      <Text style={{ paddingLeft: 10, fontSize: 16, }}>Please do not consume medication and alcohol at the same time.</Text>
-     
-      <Text>{"\n"}</Text>
+            <Text style={styles.title3}>Note</Text>
+            <Text style={{ paddingLeft: 10, fontSize: 16, }}>Please do not consume medication and alcohol at the same time.</Text>
 
-            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+            <View
+                style={{
+                    padding: 20,
+                    borderBottomColor: 'grey',
+                    borderBottomWidth: StyleSheet.hairlineWidth,
+                }}
+            />
+
+            <View style={styles.buttonArea}>
 
                 <TouchableOpacity onPress={clearWarning} style={styles.clearButton}>
                     <Text style={styles.buttonText}>CLEAR</Text>
