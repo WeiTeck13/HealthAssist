@@ -21,11 +21,15 @@ import {
 
 import { styles } from "../stylesheetFolder/style";
 
+import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
+
 //==========================================================================================
 // const begins here
 //==========================================================================================
 
 const Diabetes = ({ navigation }) => {
+
+  const adUnitId = 'ca-app-pub-3038938528713825/7955729993';
 
   //==========================================================================================
   // return
@@ -35,7 +39,7 @@ const Diabetes = ({ navigation }) => {
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Foods to avoid</Text>
 
-      <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+      <View style={styles.contentStyle}>
         <Image
           style={styles.imageStyle}
           source={require('../assets/images/whitebread.jpg')}
@@ -49,7 +53,7 @@ const Diabetes = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+      <View style={styles.contentStyle}>
         <Image
           style={styles.imageStyle}
           source={require('../assets/images/sweetdrinks.jpg')}
@@ -63,7 +67,7 @@ const Diabetes = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+      <View style={styles.contentStyle}>
         <Image
           style={styles.imageStyle}
           source={require('../assets/images/coffeecreamer.jpg')}
@@ -77,7 +81,7 @@ const Diabetes = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+      <View style={styles.contentStyle}>
         <Image
           style={styles.imageStyle}
           source={require('../assets/images/jam.jpg')}
@@ -90,7 +94,7 @@ const Diabetes = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+      <View style={styles.contentStyle}>
         <Image
           style={styles.imageStyle}
           source={require('../assets/images/processedfood.jpg')}
@@ -106,7 +110,7 @@ const Diabetes = ({ navigation }) => {
 
       <Text style={styles.title}>Types of diabeties</Text>
 
-      <View style={{ flex: 1, padding: 10 }}>
+      <View style={{ flex: 1, margin: 10 }}>
         <Text style={styles.title2}>Type 1 diabetes</Text>
         <Text style={styles.description}>
           Type 1 diabetes is a chronic condition which the pancreas produces
@@ -124,6 +128,19 @@ const Diabetes = ({ navigation }) => {
       </View>
 
       <Text>{'\n'}</Text>
+
+      {/* Advertisement banner */}
+      <View style={{ alignItems: 'center' }}>
+
+        <BannerAd
+          unitId={adUnitId}
+          size={BannerAdSize.FULL_BANNER}
+          requestOptions={{
+            requestNonPersonalizedAdsOnly: false,
+          }}
+        />
+
+      </View>
 
     </ScrollView>
   );

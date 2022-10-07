@@ -23,14 +23,26 @@ import {
 
 import { styles } from "../stylesheetFolder/style";
 
+import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
+
+//==========================================================================================
+// const begins here
+//==========================================================================================
+
 const Elderly = ({ navigation }) => {
+
+  const adUnitId = 'ca-app-pub-3038938528713825/7955729993';
+
+  //==========================================================================================
+  // return
+  //==========================================================================================
 
   return (
 
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Recommended food</Text>
 
-      <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+      <View style={styles.contentStyle}>
         <Image
           style={styles.imageStyle}
           source={require('../assets/images/fish.jpg')}
@@ -43,7 +55,7 @@ const Elderly = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+      <View style={styles.contentStyle}>
         <Image
           style={styles.imageStyle}
           source={require('../assets/images/tofu.jpg')}
@@ -56,7 +68,7 @@ const Elderly = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+      <View style={styles.contentStyle}>
         <Image
           style={styles.imageStyle}
           source={require('../assets/images/wholegrainbread.jpg')}
@@ -69,7 +81,7 @@ const Elderly = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+      <View style={styles.contentStyle}>
         <Image
           style={styles.imageStyle}
           source={require('../assets/images/fruitNvege.jpg')}
@@ -83,6 +95,19 @@ const Elderly = ({ navigation }) => {
       </View>
 
       <Text>{'\n'}</Text>
+
+      {/* Advertisement banner */}
+      <View style={{ alignItems: 'center' }}>
+
+        <BannerAd
+          unitId={adUnitId}
+          size={BannerAdSize.FULL_BANNER}
+          requestOptions={{
+            requestNonPersonalizedAdsOnly: false,
+          }}
+        />
+
+      </View>
 
     </ScrollView>
   );

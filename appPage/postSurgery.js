@@ -21,21 +21,25 @@ import {
 
 import { styles } from "../stylesheetFolder/style";
 
+import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
+
 //==========================================================================================
 // const begins here
 //==========================================================================================
 
 const PostSurgery = ({ navigation }) => {
-    
-//==========================================================================================
-// return
-//==========================================================================================
+
+    const adUnitId = 'ca-app-pub-3038938528713825/7955729993';
+
+    //==========================================================================================
+    // return
+    //==========================================================================================
 
     return (
         <ScrollView style={styles.container}>
             <Text style={styles.title}>Foods to avoid</Text>
 
-            <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+            <View style={styles.contentStyle}>
                 <Image
                     style={styles.imageStyle}
                     source={require('../assets/images/spicyRamen.jpg')}
@@ -48,7 +52,7 @@ const PostSurgery = ({ navigation }) => {
                 </View>
             </View>
 
-            <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+            <View style={styles.contentStyle}>
                 <Image
                     style={styles.imageStyle}
                     source={require('../assets/images/alcohol.jpg')}
@@ -61,7 +65,7 @@ const PostSurgery = ({ navigation }) => {
                 </View>
             </View>
 
-            <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+            <View style={styles.contentStyle}>
                 <Image
                     style={styles.imageStyle}
                     source={require('../assets/images/processedfood.jpg')}
@@ -74,7 +78,7 @@ const PostSurgery = ({ navigation }) => {
                 </View>
             </View>
 
-            <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+            <View style={styles.contentStyle}>
                 <Image
                     style={styles.imageStyle}
                     source={require('../assets/images/jam.jpg')}
@@ -87,7 +91,7 @@ const PostSurgery = ({ navigation }) => {
                 </View>
             </View>
 
-            <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+            <View style={styles.contentStyle}>
                 <Image
                     style={styles.imageStyle}
                     source={require('../assets/images/eggAndBread.jpg')}
@@ -102,6 +106,19 @@ const PostSurgery = ({ navigation }) => {
             </View>
 
             <Text>{'\n'}</Text>
+
+            {/* Advertisement banner */}
+            <View style={{ alignItems: 'center' }}>
+
+                <BannerAd
+                    unitId={adUnitId}
+                    size={BannerAdSize.FULL_BANNER}
+                    requestOptions={{
+                        requestNonPersonalizedAdsOnly: false,
+                    }}
+                />
+
+            </View>
 
         </ScrollView>
     );

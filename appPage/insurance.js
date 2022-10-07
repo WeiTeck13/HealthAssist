@@ -16,7 +16,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
-import Icon from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 //Storage Key for Async Storage
 const STORAGE_KEY_TITLE = '@save_title';
@@ -256,6 +256,62 @@ const Insurance = ({ navigation }) => {
         onSubmitEditing={onSubmitEditing}
       />
 
+      <Text style={styles.title3}>Effective date</Text>
+
+      <View style={styles.buttonInputArea}>
+
+        <TextInput
+          style={styles.inputAndButton}
+          placeholder="Effective date"
+          keyboardType="default"
+          value={getDate()}
+          onChangeText={onChangeTextEffective}
+          onSubmitEditing={onSubmitEditing}
+          editable={false}
+        />
+
+        <TouchableOpacity onPress={showDatePicker} style={styles.iconButton1}>
+          <Icon name="calendar" size={30} color="#1976D2" />
+        </TouchableOpacity>
+
+      </View>
+
+      <DateTimePickerModal
+        isVisible={isEffDatePickerVisible}
+        mode="date"
+        onConfirm={handleConfirm}
+        onCancel={hideDatePicker}
+      />
+
+      <Text style={styles.title3}>Expiry date</Text>
+
+      <View style={styles.buttonInputArea}>
+
+        <TextInput
+          style={styles.inputAndButton}
+          placeholder="Expiry date"
+          keyboardType="default"
+          value={getExpDate()}
+          onChangeText={onChangeTextExpiry}
+          onSubmitEditing={onSubmitEditing}
+          editable={false}
+        />
+
+        <TouchableOpacity
+          onPress={showExpDatePicker}
+          style={styles.iconButton1}>
+          <Icon name="calendar" size={30} color="#1976D2" />
+        </TouchableOpacity>
+
+      </View>
+
+      <DateTimePickerModal
+        isVisible={isExpDatePickerVisible}
+        mode="date"
+        onConfirm={handleConfirmII}
+        onCancel={hideExpDatePicker}
+      />
+
       <Text style={styles.title3}>Note</Text>
       <TextInput
         multiline
@@ -267,65 +323,7 @@ const Insurance = ({ navigation }) => {
         onSubmitEditing={onSubmitEditing}
       />
 
-      <Text style={styles.title3}>Effective date</Text>
-
-      <TextInput
-        style={styles.input}
-        placeholder="Effective date"
-        keyboardType="default"
-        value={getDate()}
-        onChangeText={onChangeTextEffective}
-        onSubmitEditing={onSubmitEditing}
-        editable={false}
-      />
-
-      <TouchableOpacity onPress={showDatePicker} style={styles.iconButton}>
-        <Icon name="calendar" size={30} color="white" /><Text style={styles.buttonText}> SELECT DATE</Text>
-      </TouchableOpacity>
-
-
-      <DateTimePickerModal
-        isVisible={isEffDatePickerVisible}
-        mode="date"
-        onConfirm={handleConfirm}
-        onCancel={hideDatePicker}
-      />
-
-      <Text style={styles.title3}>Expiry date</Text>
-
-      <TextInput
-        style={styles.input}
-        placeholder="Expiry date"
-        keyboardType="default"
-        value={getExpDate()}
-        onChangeText={onChangeTextExpiry}
-        onSubmitEditing={onSubmitEditing}
-        editable={false}
-      />
-
-      <TouchableOpacity
-        onPress={showExpDatePicker}
-        style={styles.iconButton}>
-        <Icon name="calendar" size={30} color="white" /><Text style={styles.buttonText}> SELECT DATE</Text>
-      </TouchableOpacity>
-
-      <DateTimePickerModal
-        isVisible={isExpDatePickerVisible}
-        mode="date"
-        onConfirm={handleConfirmII}
-        onCancel={hideExpDatePicker}
-      />
-
-      <View
-        style={{
-          padding: 20,
-          borderBottomColor: 'grey',
-          borderBottomWidth: StyleSheet.hairlineWidth,
-        }}
-      />
-
-      <View
-        style={styles.buttonArea}>
+      <View style={styles.buttonArea}>
         <TouchableOpacity onPress={clearWarning} style={styles.clearButton}>
           <Text style={styles.buttonText}>CLEAR</Text>
         </TouchableOpacity>
@@ -333,7 +331,7 @@ const Insurance = ({ navigation }) => {
         <TouchableOpacity onPress={saveData} style={styles.startButton}>
           <Text style={styles.buttonText}>SAVE</Text>
         </TouchableOpacity>
-        
+
       </View>
 
       <Text>{"\n"}</Text>

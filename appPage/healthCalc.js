@@ -11,13 +11,19 @@ import {
   SafeAreaView,
 } from 'react-native';
 
+import { styles } from "../stylesheetFolder/style";
+
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
 
 //==========================================================================================
 // const begins here
 //==========================================================================================
 
 const HealthCalc = ({ navigation }) => {
+
+  const adUnitId = 'ca-app-pub-3038938528713825/9160421835';
 
   //==========================================================================================
   // return
@@ -27,69 +33,49 @@ const HealthCalc = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <ScrollView>
 
-        <TouchableOpacity
-          onPress={() => navigation.navigate('Body mass index')}
-          style={styles.startButton}>
+        <View style={styles.buttonAlignment}>
 
-<Icon name="scale-bathroom" size={50} color="#1976D2" />
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Body mass index')}
+            style={styles.startButton3}>
 
-          <Text style={styles.buttonText}>Body mass index</Text>
+            <Icon name="scale-bathroom" size={50} color="#1976D2" />
 
-        </TouchableOpacity>
+            <Text style={styles.buttonText2}>Body mass index</Text>
 
-        {/* <TouchableOpacity
-          onPress={() => navigation.navigate('Basal metabolic rate')}
-          style={styles.startButton}>
+          </TouchableOpacity>
 
-          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Basal metabolic rate')}
+            style={styles.startButton3}>
 
-            <Image style={styles.imageStyle} source={require('../assets/btnImages/mesuringTape.jpg')} />
+            <Icon name="food-croissant" size={50} color="#1976D2" />
 
-            <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+            <Text style={styles.buttonText2}>Basal metabolic rate</Text>
 
-              <Text style={styles.buttonText}>Basal metabolic rate</Text>
+          </TouchableOpacity>
 
-            </View>
+        </View>
 
-          </View>
+        <Text>{'\n'}</Text>
 
-        </TouchableOpacity> */}
+        {/* Advertisement banner */}
+        <View style={{ alignItems: 'center' }}>
+
+          <BannerAd
+            unitId={adUnitId}
+            size={BannerAdSize.FULL_BANNER}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly: false,
+            }}
+          />
+
+        </View>
 
       </ScrollView>
     </SafeAreaView>
   );
 
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f0f0f0',
-    padding: 8,
-  },
-  startButton: {
-    height: 120,
-    width: 180,
-    margin: 5,
-    padding: 10,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonText: {
-    //color: 'white',
-    fontSize: 16,
-    padding: 10,
-  },
-  textStyle: {
-    justifyContent: 'center',
-    textAlign: 'center',
-    padding: 10,
-  },
-  imageStyle: {
-    height: 100,
-    width: 100,
-  },
-});
 
 export default HealthCalc;

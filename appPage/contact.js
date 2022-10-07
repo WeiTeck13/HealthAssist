@@ -14,13 +14,17 @@ import { styles } from "../stylesheetFolder/style";
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import call from 'react-native-phone-call';
 
 //Storage Key for Async Storage
 const STORAGE_KEY_FAMNAME = '@save_famname';
 const STORAGE_KEY_FAM = '@save_fam';
+const STORAGE_KEY_FAMADD = '@save_famAdd';
 const STORAGE_KEY_DOC = '@save_doc';
 const STORAGE_KEY_DOCNAME = '@save_docname';
+const STORAGE_KEY_DOCADD = '@save_docAdd';
 
 
 //==========================================================================================
@@ -37,8 +41,10 @@ const Contact = ({ navigation }) => {
     //Set State for Async Storage
     const [famname, setFamName] = useState('')
     const [fam, setFam] = useState('');
+    const [famAdd, setFamAdd] = useState('');
     const [doc, setDoc] = useState('');
     const [docName, setDocName] = useState('');
+    const [docAdd, setDocAdd] = useState('');
 
     /* Save data into Async Storage */
     const saveData = async () => {
@@ -52,8 +58,10 @@ const Contact = ({ navigation }) => {
             try {
                 await AsyncStorage.setItem(STORAGE_KEY_FAMNAME, famname);
                 await AsyncStorage.setItem(STORAGE_KEY_FAM, fam);
+                await AsyncStorage.setItem(STORAGE_KEY_FAMADD, famAdd);
                 await AsyncStorage.setItem(STORAGE_KEY_DOC, doc);
                 await AsyncStorage.setItem(STORAGE_KEY_DOCNAME, docName);
+                await AsyncStorage.setItem(STORAGE_KEY_DOCADD, docAdd);
 
                 alert('Data successfully saved');
             } catch (e) {
@@ -67,8 +75,10 @@ const Contact = ({ navigation }) => {
         try {
             const userFamName = await AsyncStorage.getItem(STORAGE_KEY_FAMNAME);
             const userFam = await AsyncStorage.getItem(STORAGE_KEY_FAM);
+            const userFamAdd = await AsyncStorage.getItem(STORAGE_KEY_FAMADD);
             const userDoc = await AsyncStorage.getItem(STORAGE_KEY_DOC);
             const userDocName = await AsyncStorage.getItem(STORAGE_KEY_DOCNAME);
+            const userDocAdd = await AsyncStorage.getItem(STORAGE_KEY_DOCADD);
 
             if (userFamName !== null) {
                 setFamName(userFamName);
@@ -78,12 +88,20 @@ const Contact = ({ navigation }) => {
                 setFam(userFam);
             }
 
+            if (userFamAdd !== null) {
+                setFamAdd(userFamAdd);
+            }
+
             if (userDoc !== null) {
                 setDoc(userDoc);
             }
 
             if (userDocName !== null) {
                 setDocName(userDocName);
+            }
+
+            if (userDocAdd !== null) {
+                setDocAdd(userDocAdd);
             }
 
         } catch (e) {
@@ -116,13 +134,17 @@ const Contact = ({ navigation }) => {
             //await AsyncStorage.clear();
             await AsyncStorage.removeItem('@save_famname');
             await AsyncStorage.removeItem('@save_fam');
+            await AsyncStorage.removeItem('@save_famAdd');
             await AsyncStorage.removeItem('@save_doc');
             await AsyncStorage.removeItem('@save_docName');
+            await AsyncStorage.removeItem('@save_docAdd');
 
             setFamName('');
             setFam('');
+            setFamAdd('');
             setDoc('');
             setDocName('');
+            setDocAdd('');
 
             alert('Storage successfully cleared!');
         } catch (e) {
@@ -132,19 +154,22 @@ const Contact = ({ navigation }) => {
 
     const onChangeTextFamName = (userFamName) => setFamName(userFamName);
     const onChangeTextFam = (userFam) => setFam(userFam);
+    const onChangeTextFamAdd = (userFamAdd) => setFamAdd(userFamAdd);
     const onChangeTextDoc = (userDoc) => setDoc(userDoc);
     const onChangeTextDocName = (userDocName) => setDocName(userDocName);
-
+    const onChangeTextDocAdd = (userDocAdd) => setDocAdd(userDocAdd);
 
     const onSubmitEditing = () => {
-        if (!famname && !fam && !doc && !docName) return;
+        if (!famname && !fam && !famAdd && !doc && !docName && !docAdd) return;
 
-        saveData(famname, fam, doc, docName);
+        saveData(famname, fam, famAdd, doc, docName, docAdd);
 
         setFamName('');
         setFam('');
+        setFamAdd('');
         setDoc('');
         setDocName('');
+        setDocAdd('');
 
     };
 
@@ -185,18 +210,34 @@ const Contact = ({ navigation }) => {
             />
 
             <Text style={styles.title3}>Family member contact</Text>
+
+            <View style={styles.buttonInputArea}>
+
+                <TextInput
+                    style={styles.inputAndButton}
+                    placeholder="Contact"
+                    keyboardType="numeric"
+                    value={fam}
+                    onChangeText={onChangeTextFam}
+                    onSubmitEditing={onSubmitEditing}
+                />
+
+                <TouchableOpacity onPress={() => call(args).catch(console.error)} style={styles.iconButton1}>
+                    <Icon name="phone" size={30} color="#1976D2" />
+                </TouchableOpacity>
+
+            </View>
+
+            <Text style={styles.title3}>Address</Text>
             <TextInput
-                style={styles.input}
-                placeholder="Contact"
-                keyboardType="numeric"
-                value={fam}
-                onChangeText={onChangeTextFam}
+                multiline
+                style={styles.inputII}
+                placeholder="Family member's address"
+                keyboardType="default"
+                value={famAdd}
+                onChangeText={onChangeTextFamAdd}
                 onSubmitEditing={onSubmitEditing}
             />
-
-            <TouchableOpacity onPress={() => call(args).catch(console.error)} style={styles.iconButton}>
-                <Text style={styles.buttonText}>CALL</Text>
-            </TouchableOpacity>
 
             <Text style={styles.title}>Family doctor</Text>
 
@@ -211,29 +252,37 @@ const Contact = ({ navigation }) => {
             />
 
             <Text style={styles.title3}>Family doctor contact</Text>
+
+            <View style={styles.buttonInputArea}>
+
+                <TextInput
+                    style={styles.inputAndButton}
+                    placeholder="Contact"
+                    keyboardType="numeric"
+                    value={doc}
+                    onChangeText={onChangeTextDoc}
+                    onSubmitEditing={onSubmitEditing}
+                />
+
+                <TouchableOpacity onPress={() => call(args2).catch(console.error)} style={styles.iconButton1}>
+                    <Icon name="phone" size={30} color="#1976D2" />
+                </TouchableOpacity>
+
+            </View>
+
+            <Text style={styles.title3}>Address</Text>
             <TextInput
-                style={styles.input}
-                placeholder="Contact"
-                keyboardType="numeric"
-                value={doc}
-                onChangeText={onChangeTextDoc}
+                multiline
+                style={styles.inputII}
+                placeholder="Doctor's address"
+                keyboardType="default"
+                value={docAdd}
+                onChangeText={onChangeTextDocAdd}
                 onSubmitEditing={onSubmitEditing}
             />
 
-            <TouchableOpacity onPress={() => call(args2).catch(console.error)} style={styles.iconButton}>
-                <Text style={styles.buttonText}>CALL</Text>
-            </TouchableOpacity>
+            <View style={styles.buttonArea}>
 
-            <View
-                style={{
-                    padding: 20,
-                    borderBottomColor: 'grey',
-                    borderBottomWidth: StyleSheet.hairlineWidth,
-                }}
-            />
-
-            <View
-                style={styles.buttonArea}>
                 <TouchableOpacity onPress={clearWarning} style={styles.clearButton}>
                     <Text style={styles.buttonText}>CLEAR</Text>
                 </TouchableOpacity>

@@ -35,7 +35,7 @@ export default class BloodDonation extends Component {
 
     render() {
 
-        const adUnitId = 'ca-app-pub-3038938528713825/2987912768';
+        const adUnitId = 'ca-app-pub-3038938528713825/7955729993';
 
         const state = this.state;
 
@@ -44,7 +44,7 @@ export default class BloodDonation extends Component {
             <ScrollView style={styles.container}>
                 <Text style={styles.title}>Foods to avoid before donation</Text>
 
-                <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+                <View style={styles.contentStyle}>
                     <Image
                         style={styles.imageStyle}
                         source={require('../assets/images/alcohol.jpg')}
@@ -57,7 +57,7 @@ export default class BloodDonation extends Component {
                     </View>
                 </View>
 
-                <View style={{ flex: 1, flexDirection: 'row', padding: 10 }}>
+                <View style={styles.contentStyle}>
                     <Image
                         style={styles.imageStyle}
                         source={require('../assets/images/aspirin.jpg')}
@@ -77,7 +77,20 @@ export default class BloodDonation extends Component {
                     <Rows data={state.tableData} style={styles.dataStyle} textStyle={styles.text} />
                 </Table>
 
-                <Text>{'\n'}</Text>
+                {/* Advertisement banner */}
+                <View style={{ alignItems: 'center' }}>
+
+                    <Text>{'\n'}</Text>
+
+                    <BannerAd
+                        unitId={adUnitId}
+                        size={BannerAdSize.FULL_BANNER}
+                        requestOptions={{
+                            requestNonPersonalizedAdsOnly: false,
+                        }}
+                    />
+
+                </View>
 
             </ScrollView>
         );

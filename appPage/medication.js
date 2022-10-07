@@ -209,15 +209,7 @@ const Medication = ({ navigation }) => {
             />
 
             <Text style={styles.title3}>Note</Text>
-            <Text style={{ paddingLeft: 10, fontSize: 16, }}>Please do not consume medication and alcohol at the same time.</Text>
-
-            <View
-                style={{
-                    padding: 20,
-                    borderBottomColor: 'grey',
-                    borderBottomWidth: StyleSheet.hairlineWidth,
-                }}
-            />
+            <Text style={{ marginLeft: 5, fontSize: 16, }}>Please do not consume medication and alcohol at the same time.</Text>
 
             <View style={styles.buttonArea}>
 

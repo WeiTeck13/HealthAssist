@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
-  Button,
   Image,
   StyleSheet,
   ScrollView,
   TextInput,
   ImageBackground,
   TouchableOpacity,
-  SafeAreaView,
   Alert,
 } from 'react-native';
 
@@ -21,7 +19,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
-import Icon from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 //Storage Key for Async Storage
 const STORAGE_KEY_NAME = '@save_name';
@@ -227,6 +225,7 @@ const Profile = ({ navigation }) => {
     <ScrollView style={styles.container}>
 
       <Text style={styles.title3}>Name</Text>
+
       <TextInput
         style={styles.input}
         placeholder="Name"
@@ -238,20 +237,23 @@ const Profile = ({ navigation }) => {
 
       <Text style={styles.title3}>Date of birth</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Date of birth"
-        keyboardType="default"
-        value={getDate()}
-        onChangeText={onChangeDOB}
-        onSubmitEditing={onSubmitEditing}
-        editable={false}
-      />
+      <View style={styles.buttonInputArea}>
 
-      <TouchableOpacity onPress={showDatePicker} style={styles.iconButton}>
-        <Icon name="calendar" size={30} color="white" /><Text style={styles.buttonText}> SELECT DATE</Text>
-      </TouchableOpacity>
+        <TextInput
+          style={styles.inputAndButton}
+          placeholder="Date of birth"
+          keyboardType="default"
+          value={getDate()}
+          onChangeText={onChangeDOB}
+          onSubmitEditing={onSubmitEditing}
+          editable={false}
+        />
 
+        <TouchableOpacity onPress={showDatePicker} style={styles.iconButton1}>
+          <Icon name="calendar" size={30} color="#1976D2" />
+        </TouchableOpacity>
+
+      </View>
 
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
@@ -319,14 +321,6 @@ const Profile = ({ navigation }) => {
         value={height}
         onChangeText={onChangeTextHeight}
         onSubmitEditing={onSubmitEditing}
-      />
-
-      <View
-        style={{
-          padding: 20,
-          borderBottomColor: 'grey',
-          borderBottomWidth: StyleSheet.hairlineWidth,
-        }}
       />
 
       <View style={styles.buttonArea}>

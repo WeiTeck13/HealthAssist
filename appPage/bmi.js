@@ -66,15 +66,24 @@ export default class BMI extends Component {
 
     const state = this.state;
 
+    //==========================================================================================
+    // return
+    //==========================================================================================
+
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView>
+
+          <Text style={styles.title3}>Weight</Text>
+
           <TextInput
             style={styles.input}
             placeholder="Weight in KG"
             keyboardType="numeric"
             onChangeText={this.handleNum1}
           />
+
+          <Text style={styles.title3}>Height</Text>
 
           <TextInput
             style={styles.input}
@@ -83,7 +92,7 @@ export default class BMI extends Component {
             onChangeText={this.handleNum2}
           />
 
-          <Text style={{ textAlign: 'center' }}>{`BMI : ${this.state.convert}`}</Text>
+          <Text style={{ textAlign: 'center', fontSize: 16 }}>{`BMI : ${this.state.convert}`}</Text>
 
           <TouchableOpacity
             onPress={() =>
@@ -105,5 +114,3 @@ export default class BMI extends Component {
     );
   }
 }
-
-//export default HealthCalc;

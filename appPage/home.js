@@ -19,12 +19,15 @@ import {
   SafeAreaView,
 } from 'react-native';
 
+import { styles } from "../stylesheetFolder/style";
+
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconII from 'react-native-vector-icons/Fontisto';
 import IconIII from 'react-native-vector-icons/AntDesign';
 
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
 
+import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
 
 //==========================================================================================
 // const begins here
@@ -32,116 +35,86 @@ import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 
 
 const Home = ({ navigation }) => {
 
+  const adUnitId = 'ca-app-pub-3038938528713825/5712710038';
+
   //==========================================================================================
   // return
   //==========================================================================================
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
+      <ScrollView style={styles.container}>
 
-        <Text style={styles.textTitle}>Tools</Text>
+        <Text style={styles.titleHome}>Medical widget</Text>
 
-        <View style={{ margin: 12 }}>
+        <View style={styles.buttonAlignment}>
 
-          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Profile')}
+            style={styles.startButton3}>
 
-            <View style={{ alignItems: 'center' }}>
+            <Icon name="person-circle-outline" size={50} color="#1976D2" />
 
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Profile')}
-                style={styles.startButton}>
+            <Text style={styles.buttonText2}>Profile</Text>
 
-                <Icon name="person-circle-outline" size={50} color="#1976D2" />
+          </TouchableOpacity>
 
-                <Text style={styles.buttonText}>Profile</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Health insurance')}
+            style={styles.startButton3}>
 
-              </TouchableOpacity>
+            <Icon name="document-text-sharp" size={50} color="#1976D2" />
 
+            <Text style={styles.buttonText2}>Health insurance</Text>
 
+          </TouchableOpacity>
 
-            </View>
+        </View>
 
-            <View style={{ alignItems: 'center' }}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Health insurance')}
-                style={styles.startButton}>
+        <View style={styles.buttonAlignment}>
 
-                <Icon name="document-text-sharp" size={50} color="#1976D2" />
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Health calculator')}
+            style={styles.startButton3}>
 
-                <Text style={styles.buttonText}>Health insurance</Text>
+            <Icon name="calculator-sharp" size={50} color="#1976D2" />
 
-              </TouchableOpacity>
+            <Text style={styles.buttonText2}>Health calculator</Text>
 
+          </TouchableOpacity>
 
-            </View>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Health appointment')}
+            style={styles.startButton3}>
 
-          </View>
+            <IconII name="doctor" size={50} color="#1976D2" />
 
-          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+            <Text style={styles.buttonText2}>Appointment</Text>
 
-            <View style={{ alignItems: 'center' }}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Health calculator')}
-                style={styles.startButton}>
+          </TouchableOpacity>
 
-                <Icon name="calculator-sharp" size={50} color="#1976D2" />
+        </View>
 
-                <Text style={styles.buttonText}>Health calculator</Text>
+        <View style={styles.buttonAlignment}>
 
-              </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Contact')}
+            style={styles.startButton3}>
 
-            </View>
+            <IconIII name="contacts" size={50} color="#1976D2" />
 
+            <Text style={styles.buttonText2}>Contact</Text>
 
+          </TouchableOpacity>
 
-            <View style={{ alignItems: 'center' }}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Medication')}
+            style={styles.startButton3}>
 
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Health appointment')}
-                style={styles.startButton}>
+            <IconII name="pills" size={50} color="#1976D2" />
 
-                <IconII name="doctor" size={50} color="#1976D2" />
+            <Text style={styles.buttonText2}>Medication</Text>
 
-                <Text style={styles.buttonText}>Appointment</Text>
-
-              </TouchableOpacity>
-
-            </View>
-
-          </View>
-
-          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-
-            <View style={{ alignItems: 'center' }}>
-
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Contact')}
-                style={styles.startButton}>
-
-                <IconIII name="contacts" size={50} color="#1976D2" />
-
-                <Text style={styles.buttonText}>Contact</Text>
-
-              </TouchableOpacity>
-
-            </View>
-
-            <View style={{ alignItems: 'center' }}>
-
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Medication')}
-                style={styles.startButton}>
-
-                <IconII name="pills" size={50} color="#1976D2" />
-
-                <Text style={styles.buttonText}>Medication</Text>
-
-              </TouchableOpacity>
-
-            </View>
-
-          </View>
+          </TouchableOpacity>
 
         </View>
 
@@ -149,14 +122,16 @@ const Home = ({ navigation }) => {
           card area
           ========================================================================================== */}
 
-        <Text style={styles.textTitle}>Health Information</Text>
+        <Text style={styles.titleHome}>Health Information</Text>
 
         {/* Food and nutrition */}
-        <Card>
+        <Card style={styles.cardStyle}>
           <CardImage
             source={require('../assets/cardImages/grapeTree.jpg')}
             title="Food and nutrition"
           />
+
+          <CardContent text="Different food have different health impacts to human body, some food needed to be avoided depend on health condition." />
 
           <CardAction
             separator={true}
@@ -167,42 +142,44 @@ const Home = ({ navigation }) => {
             <CardButton
               onPress={() => navigation.navigate('Pregnancy')}
               title="Pregnancy"
-              color="#FEB557"
+              color="grey"
             />
 
             <CardButton
               onPress={() => navigation.navigate('Diabetes')}
               title="Diabetes"
-              color="#FEB557"
+              color="grey"
             />
 
             <CardButton
               onPress={() => navigation.navigate('Elderly')}
               title="Elderly"
-              color="#FEB557"
+              color="grey"
             />
 
             <CardButton
               onPress={() => navigation.navigate('Post-Surgery')}
               title="Post-Surgery"
-              color="#FEB557"
+              color="grey"
             />
 
             <CardButton
               onPress={() => navigation.navigate('Blood donation')}
               title="Blood donation"
-              color="#FEB557"
+              color="grey"
             />
 
           </CardAction>
         </Card>
 
         {/* Unhealthy activity  */}
-        <Card>
+        <Card style={styles.cardStyle}>
           <CardImage
             source={require('../assets/cardImages/smoking.jpg')}
             title="Unhealthy activity"
           />
+
+          <CardContent text="Smoking and drinking are some of the examples of unhealthy activity. Avoid them for a healthy lifestyle." />
 
           <CardAction
             separator={true}
@@ -213,7 +190,7 @@ const Home = ({ navigation }) => {
             <CardButton
               onPress={() => navigation.navigate('Smoking')}
               title="Smoking"
-              color="#FEB557"
+              color="grey"
             />
 
           </CardAction>
@@ -221,39 +198,21 @@ const Home = ({ navigation }) => {
 
         <Text>{'\n'}</Text>
 
+        {/* Advertisement banner */}
+        <View style={{ alignItems: 'center' }}>
+
+          <BannerAd
+            unitId={adUnitId}
+            size={BannerAdSize.FULL_BANNER}
+            requestOptions={{
+              requestNonPersonalizedAdsOnly: false,
+            }}
+          />
+
+        </View>
+
       </ScrollView>
-    </SafeAreaView >
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f0f0f0',
-    padding: 8,
-  },
-  startButton: {
-    height: 120,
-    width: 180,
-    margin: 5,
-    padding: 10,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonText: {
-    fontSize: 16,
-    padding: 10,
-
-  },
-  textTitle: {
-    padding: 10,
-    //fontSize: 28,
-    fontSize: 22,
-  },
-  textTitle2: {
-    fontSize: 22,
-  },
-});
 
 export default Home;

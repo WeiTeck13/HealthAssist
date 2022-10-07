@@ -39,25 +39,25 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
-        <Stack.Screen name="Profile" component={Profile} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
-        <Stack.Screen name="Health insurance" component={Insurance} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' } }} />
+        <Stack.Screen name="Profile" component={Profile} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
+        <Stack.Screen name="Health insurance" component={Insurance} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
 
-        <Stack.Screen name="Health calculator" component={HealthCalc} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
-        <Stack.Screen name="Body mass index" component={BMI} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
-        <Stack.Screen name="Basal metabolic rate" component={BMR} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
+        <Stack.Screen name="Health calculator" component={HealthCalc} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
+        <Stack.Screen name="Body mass index" component={BMI} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
+        <Stack.Screen name="Basal metabolic rate" component={BMR} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
 
-        <Stack.Screen name="Health appointment" component={HealthAppointment} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
-        <Stack.Screen name="Contact" component={Contact} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
-        <Stack.Screen name="Medication" component={Medication} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
+        <Stack.Screen name="Health appointment" component={HealthAppointment} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
+        <Stack.Screen name="Contact" component={Contact} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
+        <Stack.Screen name="Medication" component={Medication} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
 
-        <Stack.Screen name="Pregnancy" component={Pregnancy} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
-        <Stack.Screen name="Diabetes" component={Diabetes} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
-        <Stack.Screen name="Elderly" component={Elderly} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
-        <Stack.Screen name="Post-Surgery" component={PostSurgery} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
-        <Stack.Screen name="Blood donation" component={BloodDonation} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
+        <Stack.Screen name="Pregnancy" component={Pregnancy} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
+        <Stack.Screen name="Diabetes" component={Diabetes} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
+        <Stack.Screen name="Elderly" component={Elderly} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
+        <Stack.Screen name="Post-Surgery" component={PostSurgery} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
+        <Stack.Screen name="Blood donation" component={BloodDonation} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
 
-        <Stack.Screen name="Smoking" component={Smoking} options={{ headerStyle: { backgroundColor: '#1976D2' }, headerTitleStyle: { color: 'white' } }} />
+        <Stack.Screen name="Smoking" component={Smoking} options={{ headerStyle: { backgroundColor: 'white' }, headerTitleStyle: { color: '#1976D2' }, headerTintColor:'#1976D2' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -16,10 +16,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
-import Icon from 'react-native-vector-icons/AntDesign';
-
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Icon2 from 'react-native-vector-icons/AntDesign';
 
 //Storage Key for Async Storage
 const STORAGE_KEY_APDATE = '@save_appDate';
@@ -225,20 +223,24 @@ const HealthAppointment = ({ navigation }) => {
 
       <Text style={styles.title3}>Date</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Date"
-        keyboardType="default"
-        //value={appDate}
-        value={getDate()}
-        onChangeText={onChangeTextDate}
-        onSubmitEditing={onSubmitEditing}
-        editable={false}
-      />
+      <View style={styles.buttonInputArea}>
 
-      <TouchableOpacity onPress={showDatePicker} style={styles.iconButton}>
-        <Icon name="calendar" size={30} color="white" /><Text style={styles.buttonText}> SELECT DATE</Text>
-      </TouchableOpacity>
+        <TextInput
+          style={styles.inputAndButton}
+          placeholder="Date"
+          keyboardType="default"
+          //value={appDate}
+          value={getDate()}
+          onChangeText={onChangeTextDate}
+          onSubmitEditing={onSubmitEditing}
+          editable={false}
+        />
+
+        <TouchableOpacity onPress={showDatePicker} style={styles.iconButton1}>
+          <Icon name="calendar" size={30} color="#1976D2" />
+        </TouchableOpacity>
+
+      </View>
 
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
@@ -249,20 +251,22 @@ const HealthAppointment = ({ navigation }) => {
 
       <Text style={styles.title3}>Time</Text>
 
+      <View style={styles.buttonInputArea}>
 
-      <TextInput
+        <TextInput
+          style={styles.inputAndButton}
+          placeholder="Time"
+          keyboardType="default"
+          value={getTime()}
+          onChangeText={onChangeTextTime}
+          onSubmitEditing={onSubmitEditing}
+        />
 
-        style={styles.input}
-        placeholder="Time"
-        keyboardType="default"
-        value={getTime()}
-        onChangeText={onChangeTextTime}
-        onSubmitEditing={onSubmitEditing}
-      />
+        <TouchableOpacity onPress={showTimePicker} style={styles.iconButton1}>
+          <Icon2 name="clockcircleo" size={30} color='#1976D2' />
+        </TouchableOpacity>
 
-      <TouchableOpacity onPress={showTimePicker} style={styles.iconButton}>
-        <Icon name="clockcircleo" size={30} color='white' /><Text style={styles.buttonText}> SELECT TIME</Text>
-      </TouchableOpacity>
+      </View>
 
       <DateTimePickerModal
         isVisible={isTimePickerVisible}
@@ -294,7 +298,7 @@ const HealthAppointment = ({ navigation }) => {
       />
 
       <Text style={styles.title3}>Precaution note</Text>
-      <Text style={{ paddingLeft: 10, fontSize: 16, }}>Your doctor may require you to take note certain precaution before your upcoming appointment.</Text>
+      <Text style={{ marginLeft: 5, fontSize: 16, }}>Your doctor may require you to take note certain precaution before your upcoming appointment.</Text>
 
       <TextInput
         multiline
@@ -304,14 +308,6 @@ const HealthAppointment = ({ navigation }) => {
         value={prec}
         onChangeText={onChangeTextPrec}
         onSubmitEditing={onSubmitEditing}
-      />
-
-      <View
-        style={{
-          padding: 20,
-          borderBottomColor: 'grey',
-          borderBottomWidth: StyleSheet.hairlineWidth,
-        }}
       />
 
       <View style={styles.buttonArea}>
