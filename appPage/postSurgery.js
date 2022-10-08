@@ -13,10 +13,7 @@ import {
     View,
     Text,
     Image,
-    StyleSheet,
     ScrollView,
-    TouchableOpacity,
-    SafeAreaView,
 } from 'react-native';
 
 import { styles } from "../stylesheetFolder/style";

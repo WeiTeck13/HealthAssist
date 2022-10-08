@@ -44,7 +44,7 @@ const Home = ({ navigation }) => {
   return (
       <ScrollView style={styles.container}>
 
-        <Text style={styles.titleHome}>Medical widget</Text>
+        <Text style={styles.titleHome}>Medical Widget</Text>
 
         <View style={styles.buttonAlignment}>
 

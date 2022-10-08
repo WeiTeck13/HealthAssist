@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import {
-  View,
   Text,
-  StyleSheet,
   ScrollView,
   TextInput,
-  Picker,
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';

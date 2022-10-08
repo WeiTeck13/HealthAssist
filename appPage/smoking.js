@@ -13,7 +13,6 @@ import {
   View,
   Text,
   Image,
-  StyleSheet,
   ScrollView,
 } from 'react-native';
 

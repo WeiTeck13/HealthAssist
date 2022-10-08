@@ -3,9 +3,6 @@
   "displayName": "HealthAssist",
   
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-3038938528713825~8530500590",
-    "ios_app_id": "ca-app-pub-3940256099942544~1458002511",
-    "delay_app_measurement_init": false,
-    "user_tracking_usage_description": "This identifier will be used to deliver personalized ads to you."
+    "android_app_id": "ca-app-pub-3038938528713825~8530500590"
   }
 }

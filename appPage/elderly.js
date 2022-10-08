@@ -12,13 +12,8 @@ import * as React from 'react';
 import {
   View,
   Text,
-  Button,
   Image,
-  ImageBackground,
-  StyleSheet,
   ScrollView,
-  TouchableOpacity,
-  SafeAreaView,
 } from 'react-native';
 
 import { styles } from "../stylesheetFolder/style";

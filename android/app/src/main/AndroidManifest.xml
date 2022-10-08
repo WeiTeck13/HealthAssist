@@ -10,6 +10,12 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
+
+      <!-- Ad Mob -->
+      <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3038938528713825~8530500590"/>
+
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
