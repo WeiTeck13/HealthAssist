@@ -49,7 +49,7 @@ const HealthCalc = ({ navigation }) => {
             onPress={() => navigation.navigate('Basal metabolic rate')}
             style={styles.startButton3}>
 
-            <Icon name="food-croissant" size={50} color="#1976D2" />
+            <Icon name="scale-bathroom" size={50} color="#1976D2" />
 
             <Text style={styles.buttonText2}>Basal metabolic rate</Text>
 

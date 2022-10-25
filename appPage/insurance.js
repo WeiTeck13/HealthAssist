@@ -256,23 +256,9 @@ const Insurance = ({ navigation }) => {
 
       <Text style={styles.title3}>Effective date</Text>
 
-      <View style={styles.buttonInputArea}>
-
-        <TextInput
-          style={styles.inputAndButton}
-          placeholder="Effective date"
-          keyboardType="default"
-          value={getDate()}
-          onChangeText={onChangeTextEffective}
-          onSubmitEditing={onSubmitEditing}
-          editable={false}
-        />
-
-        <TouchableOpacity onPress={showDatePicker} style={styles.iconButton1}>
-          <Icon name="calendar" size={30} color="#1976D2" />
-        </TouchableOpacity>
-
-      </View>
+      <TouchableOpacity onPress={showDatePicker} style={styles.iconButton1}>
+        <Icon name="calendar" size={30} color="#1976D2" /><Text style={styles.buttonText}> | {getDate()}</Text>
+      </TouchableOpacity>
 
       <DateTimePickerModal
         isVisible={isEffDatePickerVisible}
@@ -283,25 +269,11 @@ const Insurance = ({ navigation }) => {
 
       <Text style={styles.title3}>Expiry date</Text>
 
-      <View style={styles.buttonInputArea}>
-
-        <TextInput
-          style={styles.inputAndButton}
-          placeholder="Expiry date"
-          keyboardType="default"
-          value={getExpDate()}
-          onChangeText={onChangeTextExpiry}
-          onSubmitEditing={onSubmitEditing}
-          editable={false}
-        />
-
-        <TouchableOpacity
-          onPress={showExpDatePicker}
-          style={styles.iconButton1}>
-          <Icon name="calendar" size={30} color="#1976D2" />
-        </TouchableOpacity>
-
-      </View>
+      <TouchableOpacity
+        onPress={showExpDatePicker}
+        style={styles.iconButton1}>
+        <Icon name="calendar" size={30} color="#1976D2" /><Text style={styles.buttonText}> | {getExpDate()}</Text>
+      </TouchableOpacity>
 
       <DateTimePickerModal
         isVisible={isExpDatePickerVisible}

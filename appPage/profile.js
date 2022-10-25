@@ -234,23 +234,9 @@ const Profile = ({ navigation }) => {
 
       <Text style={styles.title3}>Date of birth</Text>
 
-      <View style={styles.buttonInputArea}>
-
-        <TextInput
-          style={styles.inputAndButton}
-          placeholder="Date of birth"
-          keyboardType="default"
-          value={getDate()}
-          onChangeText={onChangeDOB}
-          onSubmitEditing={onSubmitEditing}
-          editable={false}
-        />
-
-        <TouchableOpacity onPress={showDatePicker} style={styles.iconButton1}>
-          <Icon name="calendar" size={30} color="#1976D2" />
-        </TouchableOpacity>
-
-      </View>
+      <TouchableOpacity onPress={showDatePicker} style={styles.iconButton1}>
+        <Icon name="calendar" size={30} color="#1976D2" /><Text style={styles.buttonText}> | {getDate()}</Text>
+      </TouchableOpacity>
 
       <DateTimePickerModal
         isVisible={isDatePickerVisible}

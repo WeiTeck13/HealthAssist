@@ -197,7 +197,7 @@ const Contact = ({ navigation }) => {
 
         <ScrollView style={styles.container}>
 
-            <Text style={styles.title}>Family emergency contact</Text>
+            <Text style={styles.titleHome}>Family emergency contact</Text>
 
             <Text style={styles.title3}>Family member name</Text>
             <TextInput
@@ -211,22 +211,18 @@ const Contact = ({ navigation }) => {
 
             <Text style={styles.title3}>Family member contact</Text>
 
-            <View style={styles.buttonInputArea}>
+            <TextInput
+                style={styles.input}
+                placeholder="Contact"
+                keyboardType="numeric"
+                value={fam}
+                onChangeText={onChangeTextFam}
+                onSubmitEditing={onSubmitEditing}
+            />
 
-                <TextInput
-                    style={styles.inputAndButton}
-                    placeholder="Contact"
-                    keyboardType="numeric"
-                    value={fam}
-                    onChangeText={onChangeTextFam}
-                    onSubmitEditing={onSubmitEditing}
-                />
-
-                <TouchableOpacity onPress={() => call(args).catch(console.error)} style={styles.iconButton1}>
-                    <Icon name="phone" size={30} color="#1976D2" />
-                </TouchableOpacity>
-
-            </View>
+            <TouchableOpacity onPress={() => call(args).catch(console.error)} style={styles.iconButton2}>
+                <Icon name="phone" size={30} color="#1976D2" /><Text style={styles.buttonText}> CALL</Text>
+            </TouchableOpacity>
 
             <Text style={styles.title3}>Address</Text>
             <TextInput
@@ -239,7 +235,7 @@ const Contact = ({ navigation }) => {
                 onSubmitEditing={onSubmitEditing}
             />
 
-            <Text style={styles.title}>Family doctor</Text>
+            <Text style={styles.titleHome}>Family doctor</Text>
 
             <Text style={styles.title3}>Family doctor name</Text>
             <TextInput
@@ -253,10 +249,8 @@ const Contact = ({ navigation }) => {
 
             <Text style={styles.title3}>Family doctor contact</Text>
 
-            <View style={styles.buttonInputArea}>
-
                 <TextInput
-                    style={styles.inputAndButton}
+                    style={styles.input}
                     placeholder="Contact"
                     keyboardType="numeric"
                     value={doc}
@@ -264,11 +258,10 @@ const Contact = ({ navigation }) => {
                     onSubmitEditing={onSubmitEditing}
                 />
 
-                <TouchableOpacity onPress={() => call(args2).catch(console.error)} style={styles.iconButton1}>
-                    <Icon name="phone" size={30} color="#1976D2" />
+                <TouchableOpacity onPress={() => call(args2).catch(console.error)} style={styles.iconButton2}>
+                    <Icon name="phone" size={30} color="#1976D2" /><Text style={styles.buttonText}> CALL</Text>
                 </TouchableOpacity>
 
-            </View>
 
             <Text style={styles.title3}>Address</Text>
             <TextInput

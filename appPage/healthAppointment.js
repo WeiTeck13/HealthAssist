@@ -223,24 +223,9 @@ const HealthAppointment = ({ navigation }) => {
 
       <Text style={styles.title3}>Date</Text>
 
-      <View style={styles.buttonInputArea}>
-
-        <TextInput
-          style={styles.inputAndButton}
-          placeholder="Date"
-          keyboardType="default"
-          //value={appDate}
-          value={getDate()}
-          onChangeText={onChangeTextDate}
-          onSubmitEditing={onSubmitEditing}
-          editable={false}
-        />
-
-        <TouchableOpacity onPress={showDatePicker} style={styles.iconButton1}>
-          <Icon name="calendar" size={30} color="#1976D2" />
-        </TouchableOpacity>
-
-      </View>
+      <TouchableOpacity onPress={showDatePicker} style={styles.iconButton1}>
+        <Icon name="calendar" size={30} color="#1976D2" /><Text style={styles.buttonText}> | {getDate()}</Text>
+      </TouchableOpacity>
 
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
@@ -251,29 +236,25 @@ const HealthAppointment = ({ navigation }) => {
 
       <Text style={styles.title3}>Time</Text>
 
-      <View style={styles.buttonInputArea}>
+      <TextInput
+        style={styles.input}
+        placeholder="Time"
+        keyboardType="default"
+        value={getTime()}
+        onChangeText={onChangeTextTime}
+        onSubmitEditing={onSubmitEditing}
+      />
 
-        <TextInput
-          style={styles.inputAndButton}
-          placeholder="Time"
-          keyboardType="default"
-          value={getTime()}
-          onChangeText={onChangeTextTime}
-          onSubmitEditing={onSubmitEditing}
-        />
-
-        <TouchableOpacity onPress={showTimePicker} style={styles.iconButton1}>
+      {/* <TouchableOpacity onPress={showTimePicker} style={styles.iconButton1}>
           <Icon2 name="clockcircleo" size={30} color='#1976D2' />
         </TouchableOpacity>
-
-      </View>
 
       <DateTimePickerModal
         isVisible={isTimePickerVisible}
         mode="time"
         onConfirm={handleConfirmTime}
         onCancel={hideTimePicker}
-      />
+      /> */}
 
       <Text style={styles.title3}>Appointment location</Text>
       <TextInput

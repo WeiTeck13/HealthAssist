@@ -64,7 +64,7 @@ const Home = ({ navigation }) => {
 
             <Icon name="document-text-sharp" size={50} color="#1976D2" />
 
-            <Text style={styles.buttonText2}>Health insurance</Text>
+            <Text style={styles.buttonText2}>Health Insurance</Text>
 
           </TouchableOpacity>
 
@@ -78,7 +78,7 @@ const Home = ({ navigation }) => {
 
             <Icon name="calculator-sharp" size={50} color="#1976D2" />
 
-            <Text style={styles.buttonText2}>Health calculator</Text>
+            <Text style={styles.buttonText2}>Health Calculator</Text>
 
           </TouchableOpacity>
 
@@ -142,31 +142,31 @@ const Home = ({ navigation }) => {
             <CardButton
               onPress={() => navigation.navigate('Pregnancy')}
               title="Pregnancy"
-              color="grey"
+              color="black"
             />
 
             <CardButton
               onPress={() => navigation.navigate('Diabetes')}
               title="Diabetes"
-              color="grey"
+              color="black"
             />
 
             <CardButton
               onPress={() => navigation.navigate('Elderly')}
               title="Elderly"
-              color="grey"
+              color="black"
             />
 
             <CardButton
               onPress={() => navigation.navigate('Post-Surgery')}
               title="Post-Surgery"
-              color="grey"
+              color="black"
             />
 
             <CardButton
               onPress={() => navigation.navigate('Blood donation')}
               title="Blood donation"
-              color="grey"
+              color="black"
             />
 
           </CardAction>
@@ -190,7 +190,7 @@ const Home = ({ navigation }) => {
             <CardButton
               onPress={() => navigation.navigate('Smoking')}
               title="Smoking"
-              color="grey"
+              color="black"
             />
 
           </CardAction>

@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#F7FAFC',
         padding: 10,
     },
     imageStyle: {
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 
     buttonAlignment: { flex: 1, flexDirection: 'row', justifyContent: 'center', marginLeft: 10, marginRight: 10 },
 
-    cardStyle: { borderWidth: 1, borderColor: 'lightgrey', shadowColor: 'transparent', borderRadius: 0, },
+    cardStyle: { shadowColor: 'transparent', borderRadius: 0, },
 
     buttonInputArea: { flex: 1, flexDirection: 'row', },
 
@@ -34,8 +34,6 @@ const styles = StyleSheet.create({
     startButton: {
         height: 40,
         width: '50%',
-        borderWidth: 1,
-        borderColor: 'lightgrey',
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
@@ -43,8 +41,6 @@ const styles = StyleSheet.create({
     startButton2: {
         height: 40,
         margin: 5,
-        borderWidth: 1,
-        borderColor: 'lightgrey',
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
@@ -53,34 +49,28 @@ const styles = StyleSheet.create({
         height: 120,
         width: '50%',
         margin: 5,
-        borderWidth: 1,
-        borderColor: 'lightgrey',
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    // iconButton: {
-    //     height: 40,
-    //     width: 170,
-    //     margin: 5,
-    //     marginTop: 12,
-    //     marginBottom: 12,
-    //     borderWidth: 1,
-    //     borderColor: 'lightgrey',
-    //     backgroundColor: 'white',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     flexDirection: 'row'
-    // },
     iconButton1: {
         height: 40,
-        width: 40,
-        // margin: 5,
+        margin: 5,
         marginTop: 12,
         marginBottom: 12,
-        borderWidth: 1,
-        borderColor: 'lightgrey',
+        paddingLeft: 10,
         //borderRadius: 100,
+        backgroundColor: 'white',
+        //justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row'
+    },
+    iconButton2: {
+        height: 40,
+        width: '50%',
+        margin: 5,
+        marginTop: 12,
+        marginBottom: 12,
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
@@ -90,8 +80,6 @@ const styles = StyleSheet.create({
         height: 40,
         width: '50%',
         marginRight: 15,
-        borderWidth: 1,
-        borderColor: 'lightgrey',
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
@@ -102,6 +90,7 @@ const styles = StyleSheet.create({
     },
     buttonText2: {
         fontSize: 16,
+        color:'black'
     },
 
     buttonArea: {
@@ -117,18 +106,9 @@ const styles = StyleSheet.create({
         margin: 5,
         marginTop: 12,
         marginBottom: 12,
-        borderBottomWidth: 1,
+        borderBottomWidth: 0.5,
         borderColor: 'lightgrey',
-        fontSize: 16,
-    },
-    inputAndButton: {
-        height: 40,
-        margin: 5,
-        marginTop: 12,
-        marginBottom: 12,
-        width: '85%',
-        borderBottomWidth: 1,
-        borderColor: 'lightgrey',
+        backgroundColor: 'white',
         fontSize: 16,
     },
     inputII: {
@@ -137,10 +117,9 @@ const styles = StyleSheet.create({
         marginTop: 12,
         marginBottom: 12,
         padding: 10,
-        borderWidth: 1,
-        borderRadius: 5,
+        borderBottomWidth: 0.5,
         borderColor: 'lightgrey',
-        backgroundColor: '#f0f0f0',
+        backgroundColor: 'white',
         fontSize: 16,
     },
     pickerStyle: {
@@ -152,7 +131,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         borderColor: 'lightgrey',
-        backgroundColor: '#f0f0f0',
+        backgroundColor: 'white',
         justifyContent: 'center',
     },
 
@@ -162,27 +141,31 @@ const styles = StyleSheet.create({
     titleHome: {
         fontSize: 22,
         margin: 5,
-
+        color:'black',
     },
     title: {
         fontSize: 22,
         marginLeft: 5,
+        color:'black',
     },
     title2: {
         fontSize: 18,
+        color:'black',
     },
     title3: {
-        fontWeight: 'bold',
-        marginTop: 10,
+        //fontWeight: 'bold',
+        marginTop: 15,
         marginLeft: 5,
         fontSize: 16,
         textTransform: 'uppercase',
+        color:'black',
     },
     description: {
         flex: 1,
         //flexWrap: 'wrap',
         textAlign: 'justify',
         fontSize: 16,
+        color:'black',
     },
 
     // ==========================================================================================
