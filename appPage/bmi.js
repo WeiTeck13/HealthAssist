@@ -89,7 +89,7 @@ export default class BMI extends Component {
             onChangeText={this.handleNum2}
           />
 
-          <Text style={{ textAlign: 'center', fontSize: 16 }}>{`BMI : ${this.state.convert}`}</Text>
+          <Text style={{ textAlign: 'center', fontSize: 16, color:'black'}}>{`BMI : ${this.state.convert}`}</Text>
 
           <TouchableOpacity
             onPress={() =>

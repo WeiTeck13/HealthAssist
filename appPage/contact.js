@@ -221,7 +221,7 @@ const Contact = ({ navigation }) => {
             />
 
             <TouchableOpacity onPress={() => call(args).catch(console.error)} style={styles.iconButton2}>
-                <Icon name="phone" size={30} color="#1976D2" /><Text style={styles.buttonText}> CALL</Text>
+                <Icon name="phone" size={30} color="#1976D2" />
             </TouchableOpacity>
 
             <Text style={styles.title3}>Address</Text>
@@ -259,7 +259,7 @@ const Contact = ({ navigation }) => {
                 />
 
                 <TouchableOpacity onPress={() => call(args2).catch(console.error)} style={styles.iconButton2}>
-                    <Icon name="phone" size={30} color="#1976D2" /><Text style={styles.buttonText}> CALL</Text>
+                    <Icon name="phone" size={30} color="#1976D2" />
                 </TouchableOpacity>
 
 

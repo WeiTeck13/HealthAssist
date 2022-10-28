@@ -279,7 +279,7 @@ const HealthAppointment = ({ navigation }) => {
       />
 
       <Text style={styles.title3}>Precaution note</Text>
-      <Text style={{ marginLeft: 5, fontSize: 16, }}>Your doctor may require you to take note certain precaution before your upcoming appointment.</Text>
+      <Text style={{ marginLeft: 5, fontSize: 16, color:'black' }}>Your doctor may require you to take note certain precaution before your upcoming appointment.</Text>
 
       <TextInput
         multiline

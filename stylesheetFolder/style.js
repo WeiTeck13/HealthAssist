@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     },
     iconButton2: {
         height: 40,
-        width: '50%',
+        width: 40,
         margin: 5,
         marginTop: 12,
         marginBottom: 12,
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
 
     head: { height: 40, backgroundColor: '#1976D2', },
     headText: { margin: 6, color: 'white' },
-    text: { margin: 6 },
+    text: { margin: 6, color:'black' },
     dataStyle: { backgroundColor: 'lavenderblush' },
 
 });

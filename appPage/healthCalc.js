@@ -41,7 +41,7 @@ const HealthCalc = ({ navigation }) => {
 
             <Icon name="scale-bathroom" size={50} color="#1976D2" />
 
-            <Text style={styles.buttonText2}>Body mass index</Text>
+            <Text style={styles.buttonText2}>Body Mass Index</Text>
 
           </TouchableOpacity>
 
@@ -51,7 +51,7 @@ const HealthCalc = ({ navigation }) => {
 
             <Icon name="scale-bathroom" size={50} color="#1976D2" />
 
-            <Text style={styles.buttonText2}>Basal metabolic rate</Text>
+            <Text style={styles.buttonText2}>Basal Metabolic Rate</Text>
 
           </TouchableOpacity>
 

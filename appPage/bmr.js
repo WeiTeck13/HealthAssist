@@ -91,9 +91,9 @@ export default class BMR extends Component {
                         onChangeText={this.handleNum2}
                     />
 
-                    <Text style={{ textAlign: 'center', fontSize: 16 }}>{`BMR (MALE): ${this.state.male}`}</Text>
+                    <Text style={{ textAlign: 'center', fontSize: 16, color:'black' }}>{`BMR (MALE): ${this.state.male}`}</Text>
 
-                    <Text style={{ textAlign: 'center', fontSize: 16 }}>{`BMR (FEMALE): ${this.state.female}`}</Text>
+                    <Text style={{ textAlign: 'center', fontSize: 16, color:'black' }}>{`BMR (FEMALE): ${this.state.female}`}</Text>
 
                     <TouchableOpacity
                         onPress={() =>
@@ -104,7 +104,7 @@ export default class BMR extends Component {
                     </TouchableOpacity>
 
                     <Text style={styles.title3}>Note</Text>
-                    <Text style={{ paddingLeft: 5, fontSize: 16, }}>This BMR calculator uses the Harris–Benedict equations revised by Mifflin and St Jeor in 1990.</Text>
+                    <Text style={{ paddingLeft: 5, fontSize: 16, color:'black' }}>This BMR calculator uses the Harris–Benedict equations revised by Mifflin and St Jeor in 1990.</Text>
 
 
                 </ScrollView>

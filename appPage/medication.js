@@ -204,7 +204,7 @@ const Medication = ({ navigation }) => {
             />
 
             <Text style={styles.title3}>Note</Text>
-            <Text style={{ marginLeft: 5, fontSize: 16, }}>Please do not consume medication and alcohol at the same time.</Text>
+            <Text style={{ marginLeft: 5, fontSize: 16, color:'black' }}>Please do not consume medication and alcohol at the same time.</Text>
 
             <View style={styles.buttonArea}>
 
